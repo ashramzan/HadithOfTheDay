@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {  useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_300Light_Italic } from '@expo-google-fonts/roboto';
 import { faCopy } from '@fortawesome/free-regular-svg-icons';
 import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import * as Speech from 'expo-speech';
 import * as Clipboard from 'expo-clipboard';
 
@@ -62,7 +62,7 @@ const fetchHadith = (apiURL) => {
 const randomQuote = () => {
   const randomApiUrl = apiURLs[Math.floor(Math.random() * apiURLs.length)];
   fetchHadith(randomApiUrl);
-  this.ScrollView.scrollTo({y: 0, animated: true});
+  this.ScrollView.scrollTo({y: 0});
 }
 
 useEffect(() => {
