@@ -145,21 +145,21 @@ useEffect(() => {
               onPress={speak}
               style={{
                 borderWidth: 2,
-                borderColor: '#FADBD8',
+                borderColor: '#AF7AC5',
                 borderRadius: 50,
                 padding: 15
               }}>
-                <FontAwesomeIcon icon={faVolumeUp} size = {20} color='#FADBD8'/>
+                <FontAwesomeIcon icon={faVolumeUp} size = {20} color='#AF7AC5'/>
               </TouchableOpacity>
               <TouchableOpacity
               onPress={copyToClipboard}
               style={{
                 borderWidth: 2,
-                borderColor: '#FADBD8',
+                borderColor: '#AF7AC5',
                 borderRadius: 50,
                 padding: 15
               }}>
-                <FontAwesomeIcon icon={faCopy} size = {20} color='#FADBD8'/>
+                <FontAwesomeIcon icon={faCopy} size = {20} color='#AF7AC5'/>
               </TouchableOpacity>
             </View>
       </View>
