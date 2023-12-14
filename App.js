@@ -25,7 +25,11 @@ export default function App() {
 
   const speak = () => {
     Speech.stop();
-    Speech.speak(Quote + Author);
+    const speechText = `${Quote} ${Author}`;
+    
+    if (speechText.trim() !== "") {
+      Speech.speak(speechText, { language: 'en' });
+    }
   };
 
   const copyToClipboard = async () => {
