@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {  useFonts, Roboto_400Regular, Roboto_500Medium, Roboto_300Light_Italic } from '@expo-google-fonts/roboto';
 import { faCopy } from '@fortawesome/free-regular-svg-icons';
 import { faVolumeUp } from '@fortawesome/free-solid-svg-icons';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef} from 'react';
 import * as Speech from 'expo-speech';
 import * as Clipboard from 'expo-clipboard';
 
@@ -59,10 +59,15 @@ const fetchHadith = (apiURL) => {
   })
 }
 
+const scrollRef = useRef();
+
 const randomQuote = () => {
+  scrollRef.current?.scrollTo({
+    y: 0,
+    animated: true,
+  });
   const randomApiUrl = apiURLs[Math.floor(Math.random() * apiURLs.length)];
   fetchHadith(randomApiUrl);
-  this.ScrollView.scrollTo({y: 0});
 }
 
 useEffect(() => {
@@ -97,7 +102,7 @@ useEffect(() => {
             }}>
             HADITH OF THE DAY
           </Text>
-          <ScrollView ref={(ref) => (this.ScrollView = ref)}>          
+          <ScrollView ref={scrollRef}>          
             <FontAwesomeIcon icon={faQuoteLeft} color='#D0D3D4'  style={{marginLeft:'2%',marginBottom:-12}}/>
             <Text style={{
               color:'#AF7AC5',
@@ -140,7 +145,7 @@ useEffect(() => {
                 borderRadius: 50,
                 padding: 15
               }}>
-                <FontAwesomeIcon icon={faVolumeUp} size = '20x' color='#FADBD8'/>
+                <FontAwesomeIcon icon={faVolumeUp} size = {20} color='#FADBD8'/>
               </TouchableOpacity>
               <TouchableOpacity
               onPress={copyToClipboard}
@@ -150,7 +155,7 @@ useEffect(() => {
                 borderRadius: 50,
                 padding: 15
               }}>
-                <FontAwesomeIcon icon={faCopy} size = '20x' color='#FADBD8'/>
+                <FontAwesomeIcon icon={faCopy} size = {20} color='#FADBD8'/>
               </TouchableOpacity>
             </View>
       </View>
